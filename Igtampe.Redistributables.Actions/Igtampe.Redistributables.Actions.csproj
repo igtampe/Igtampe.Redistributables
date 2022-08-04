@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <RootNamespace>Igtampe.Actions</RootNamespace>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Igtampe.Redistributables.DBContexts\Igtampe.Redistributables.DBContexts.csproj" />
+    <ProjectReference Include="..\Igtampe.Redistributables\Igtampe.Redistributables.csproj" />
+  </ItemGroup>
+
+</Project>
