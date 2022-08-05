@@ -28,3 +28,4 @@ The actual session manager. This one is a singleton, accessed by static property
 |LogOut()|Logs out session with given ID. Returns true if successful|
 |LogOutAll()|Logs out all sessions with given username|
 |RemoveExpiredSessions()|Removes all sessions from the collection of active sessions that are expired|
+|Reset()|Removes all sessions in the Manager|
