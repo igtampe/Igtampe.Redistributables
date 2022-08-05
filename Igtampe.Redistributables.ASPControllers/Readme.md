@@ -1,6 +1,8 @@
 # Controllers
 
-Common abstract controllers that can handle a few reusable functions involving other objects in the IgtampeCommons.
+Common abstract controllers that can handle a few reusable functions involving other objects in the Redistributables. 
+
+**Most if not all functionality of these controllers were moved to the Actions portion of the Redistributables project rewrite. Do consider taking a look at the code there for more information!**
 
 ## ErrorResultControllerBase
 A base controller that has shortcuts to generate IActionResults using ErrorResults. This also includes a few shortcuts for NotFound() results involving objects, and a shortcut to generate a 418 (I'm Teapot).
