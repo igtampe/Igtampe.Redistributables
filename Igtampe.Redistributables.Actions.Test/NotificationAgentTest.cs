@@ -16,11 +16,11 @@ namespace Igtampe.Redistributables.Actions.Test {
         };
 
         private static readonly Notification[] Notifications = {
-            new() { ID = new("13693bcd-b64b-48f8-b458-ef1ffcbad093"), Text="Hoo hoo ha ha heee hee" },
-            new() { ID = new("8e8b56b4-8e04-4bbc-86c8-352303a8640f"), Text="Christmas is Here" },
-            new() { ID = new("a4e75dd9-db4c-465d-bbc4-725455dd2808"), Text="Sometimes people die and that's a shame" },
-            new() { ID = new("2e5a30a2-bf95-4b97-80da-91050789400c"), Text="Yarg, you have scurvy" },
-            new() { ID = new("27bedc0e-a1cb-4b63-93f6-772bf511a071"), Text="B" },
+            new() { ID =new("13693bcd-b64b-48f8-b458-ef1ffcbad093"), Text="Hoo hoo ha ha heee hee" },
+            new() { ID =new("8e8b56b4-8e04-4bbc-86c8-352303a8640f"), Text="Christmas is Here" },
+            new() { ID =new("a4e75dd9-db4c-465d-bbc4-725455dd2808"), Text="Sometimes people die and that's a shame" },
+            new() { ID =new("2e5a30a2-bf95-4b97-80da-91050789400c"), Text="Yarg, you have scurvy" },
+            new() { ID =new("27bedc0e-a1cb-4b63-93f6-772bf511a071"), Text="B" },
         };
 
         private readonly ISessionManager Manager = SessionManager.Manager;
@@ -48,13 +48,11 @@ namespace Igtampe.Redistributables.Actions.Test {
         }
 
         private void FillContext() {
-            //Context.AddRange(Users);
             Context.AddRange(Notifications);
             Context.SaveChanges();
         }
 
         private void EmptyContext() {
-            //Context.RemoveRange(Context.User);
             Context.RemoveRange(Context.Notification);
             Context.SaveChanges();
         }
@@ -114,6 +112,5 @@ namespace Igtampe.Redistributables.Actions.Test {
             Assert.AreEqual(2, Context.Notification.Count(), "Notification wasn't deleted");
             Assert.IsFalse(await Context.Notification.AnyAsync(A => A.Owner!=null && A.Owner.Username == Users[1].Username));
         }
-
     }
 }
