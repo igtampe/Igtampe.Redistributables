@@ -11,7 +11,7 @@ namespace Igtampe.DBContexts {
 
         /// <summary>Apply any Include operation to sets that your user object should always contain. If there's no autoincludes, return the same set</summary>
         /// <returns></returns>
-        public IQueryable<E> ApplyAutoIncludes(IQueryable<User> Set);
+        public IQueryable<E> ApplyAutoIncludes(IQueryable<E> Set) => Set;
 
     }
 }
