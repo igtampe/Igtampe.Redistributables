@@ -38,6 +38,10 @@ namespace Igtampe.DBContexts {
         /// <param name="DBURL"></param>
         /// <returns></returns>
         public static string ConvertPostgresURLToConnectionString(string DBURL) {
+
+            //Override if the host is specified
+            if (DBURL.ToLower().StartsWith("host")) { return DBURL; }
+
             //OK so now we have this
             //postgres://user:password@host:port/database
 
