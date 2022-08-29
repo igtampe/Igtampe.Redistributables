@@ -8,9 +8,7 @@ using Igtampe.Actions;
 namespace Igtampe.Controllers {
 
     /// <summary>Controller that handles User operations</summary>
-    [Route("API/Notif")]
-    [ApiController]
-    public class NotificationController<E,F> : ErrorResultControllerBase where E : DbContext, IUserContext<F>, INotificationContext<F> where F : User {
+    public class NotificationController<E,F> : ErrorResultControllerBase where E : DbContext, IUserContext<F>, INotificationContext<F> where F : User, new() {
 
         private readonly NotificationAgent<E,F> Agent;
 

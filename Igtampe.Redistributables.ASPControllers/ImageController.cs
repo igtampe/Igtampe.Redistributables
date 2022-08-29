@@ -9,8 +9,6 @@ using Igtampe.Actions;
 namespace Igtampe.Controllers {
 
     /// <summary>Controller that handles User operations</summary>
-    [Route("API/Images")]
-    [ApiController]
     public class ImageController<E,F> : ErrorResultControllerBase where E : DbContext, IImageContext, IUserContext<F> where F : User {
 
         /// <summary>Configurable maximum size of images accepted by this controller</summary>
