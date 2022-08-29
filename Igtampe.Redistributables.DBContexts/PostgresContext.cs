@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Igtampe.DBContexts.Exceptions;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace Igtampe.DBContexts {
@@ -13,10 +14,17 @@ namespace Igtampe.DBContexts {
             var DBURL = Environment.GetEnvironmentVariable("DATABASE_URL") ?? "";
             if (string.IsNullOrWhiteSpace(DBURL)) {
                 if (File.Exists("DBURL.txt")) { DBURL = File.ReadAllText("DBURL.txt"); } else { File.WriteAllText("DBURL.txt", "here"); }
-                if (string.IsNullOrWhiteSpace(DBURL)) { throw new InvalidOperationException("Could not determine what DBURL to connect to!"); }
+                if (string.IsNullOrWhiteSpace(DBURL)) { 
+                    throw new DBURLNotFoundException(); 
+                }
             }
 
-            optionsBuilder.UseNpgsql(ConvertPostgresURLToConnectionString(DBURL));
+            string CString;
+
+            try { CString = ConvertPostgresURLToConnectionString(DBURL);} 
+            catch (Exception) { throw new DBURLUnparsableException(DBURL); ;}
+            
+            optionsBuilder.UseNpgsql(CString);
         }
 
         /// <summary>Overrides on model creation to remove the plural convention</summary>
