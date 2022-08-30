@@ -7,11 +7,16 @@ using Microsoft.EntityFrameworkCore;
 namespace Igtampe.Actions {
 
     /// <summary>Agent that handles actions for the Notifier system</summary>
-    /// <typeparam name="E"></typeparam>
-    /// <typeparam name="F"></typeparam>
-    public class NotificationAgent<E, F> : SessionedActionAgent<E> where E : DbContext, IUserContext<F>, INotificationContext<F> where F : User, new() {
+    /// <typeparam name="E">Type of DB Context</typeparam>
+    /// <typeparam name="F">Type of Notification</typeparam>
+    /// <typeparam name="G">Type of User</typeparam>
+    public class NotificationAgent<E, F, G> : 
+        SessionedActionAgent<E> 
+        where E : DbContext, IUserContext<G>, INotificationContext<F,G> 
+        where F : Notification<G>, new() 
+        where G : User, new() {
 
-        private readonly AuthAgent<E,F> AuthAgent;
+        private readonly AuthAgent<E,G> AuthAgent;
 
         /// <summary>Creates a Notification Agent</summary>
         /// <param name="Context"></param>
@@ -22,7 +27,7 @@ namespace Igtampe.Actions {
         /// <summary>Gets all notifications from the logged in user</summary>
         /// <param name="SessionID"></param>
         /// <returns></returns>
-        public async Task<List<Notification>> GetAll(Guid? SessionID) {
+        public async Task<List<F>> GetAll(Guid? SessionID) {
             var S = await GetSession(SessionID);
             return await Context.Notification.Where(A => A.Owner != null && A.Owner.Username == S.Username).ToListAsync();
         }
@@ -52,15 +57,15 @@ namespace Igtampe.Actions {
         /// <param name="Username"></param>
         /// <param name="Text"></param>
         /// <returns></returns>
-        public async Task<Notification> SendNotification(string Username, string Text) => await SendNotification(await AuthAgent.GetUser(Username), Text);
+        public async Task<F> SendNotification(string Username, string Text) => await SendNotification(await AuthAgent.GetUser(Username), Text);
             
 
         /// <summary>Sends a notification to the given user</summary>
         /// <param name="User"></param>
         /// <param name="Text"></param>
         /// <returns></returns>
-        public async Task<Notification> SendNotification(F User, string Text) {
-            Notification N = new() { DateCreated = DateTime.UtcNow, Text = Text, Owner = User };
+        public async Task<F> SendNotification(G User, string Text) {
+            F N = new() { DateCreated = DateTime.UtcNow, Text = Text, Owner = User };
             Context.Notification.Add(N);
             await Context.SaveChangesAsync();
             return N;
