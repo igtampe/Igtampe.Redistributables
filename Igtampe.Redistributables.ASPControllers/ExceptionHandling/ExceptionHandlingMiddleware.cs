@@ -1,15 +1,15 @@
 ﻿using Igtampe.Actions.Exceptions;
+using Igtampe.ChopoAuth;
 using Igtampe.ChopoAuth.Exceptions;
 using Igtampe.ChopoImageHandling.Exceptions;
 using Igtampe.ChopoSessionManager.Exceptions;
 using Igtampe.Controllers.Exceptions;
-using Igtampe.Notifier.Exceptions;
 using Microsoft.AspNetCore.Http;
 
 namespace Igtampe.Controllers.ExceptionHandling {
 
     /// <summary>Default implementation of the ExceptionHandlingMiddleware with all common redistributable exceptions</summary>
-    public class ExceptionHandlingMiddleware : BaseExceptionHandlingMiddleware {
+    public class ExceptionHandlingMiddleware<E> : BaseExceptionHandlingMiddleware where E:User {
 
         /// <summary>Creates a handling middleware</summary>
         /// <param name="next"></param>
@@ -34,14 +34,12 @@ namespace Igtampe.Controllers.ExceptionHandling {
                     => ErrorResult.Reusable.InvalidSession,
 
                 UserNotFoundException or 
-                ImageNotFoundException or 
-                NotificationNotFoundException 
+                ImageNotFoundException
                     => ErrorResult.NotFound(error.Message),
                 
                 UserException or 
                 ImageException or 
-                SessionException or 
-                NotificationException 
+                SessionException
                     => ErrorResult.ServerError(error.Message),
                 
                 TeapotException
