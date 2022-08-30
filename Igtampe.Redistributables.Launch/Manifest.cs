@@ -4,7 +4,7 @@
     public class Manifest {
 
         /// <summary>Version of IDACRA used to host this application</summary>
-        public string IDACRA_VERSION { get; } = "1.0.0";
+        public string idacra_version{ get; } = "1.0.0";
 
         /// <summary>Name of the Application</summary>
         public string Name { get; set; } = "";
