@@ -37,5 +37,4 @@ namespace Igtampe.Redistributables.Launcher {
         public OpenApiLicense ToOAL() => License.ToLower().StartsWith("http") ? new() { Url = new(License) } : new() { Name=License };
 
     }
-
 }
