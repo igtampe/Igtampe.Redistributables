@@ -16,7 +16,7 @@ namespace Igtampe.Toffee.Actions {
 
         private UserAgent UserAgent { get; } //YOU CAN CHAIN AGENTS WOW
         private CategoryAgent CategoryAgent { get; }
-        private NotificationAgent<ToffeeContext,User> NotifAgent { get; }
+        private NotificationAgent<ToffeeContext,Notification,User> NotifAgent { get; }
 
         /// <summary>Creates a Task Agent</summary>
         /// <param name="Context"></param>
@@ -101,7 +101,13 @@ namespace Igtampe.Toffee.Actions {
             Context.Task.Add(T);
             await Context.SaveChangesAsync();
 
-            if (Notify) { await NotifAgent.SendNotification(Assignee, $"{T.ID}|You have been assigned \"{T.Name}\" by {Assigner.Name}"); }
+            if (Notify) {
+                await NotifAgent.SendNotification(new() {
+                    Owner = Assignee,
+                    Text = $"You have been assigned \"{T.Name}\" by {Assigner.Name}",
+                    Task = T
+                });
+            }
 
             return T;
         }
@@ -138,7 +144,13 @@ namespace Igtampe.Toffee.Actions {
 
             await SaveTask(T);
 
-            if (Notify) { await NotifAgent.SendNotification(Assignee, $"{T.ID}|You have been assigned \"{T.Name}\" by {Assigner.Name}"); }
+            if (Notify) {
+                await NotifAgent.SendNotification(new() {
+                    Owner = Assignee,
+                    Text = $"You have been assigned \"{T.Name}\" by {Assigner.Name}",
+                    Task=T
+                }); 
+            }
 
             return T;
 
@@ -177,7 +189,13 @@ namespace Igtampe.Toffee.Actions {
             T.StatusMessage = StatusMessage;
             await SaveTask(T);
 
-            if (Notify) { await NotifAgent.SendNotification(T.Assigner!, $"{T.ID}|Task \"{T.Name}\" is now {nameof(T.Status).ToLower().Replace("_","")}"); }
+            if (Notify) {
+                await NotifAgent.SendNotification(new() {
+                    Owner = T.Assigner,
+                    Text = $"Task \"{T.Name}\" is now {nameof(T.Status).ToLower().Replace("_", "")}",
+                    Task = T
+                });
+            }
 
             return T;
         }
@@ -217,8 +235,14 @@ namespace Igtampe.Toffee.Actions {
             //I don't think EF will update that but sabes its the thought that counts.
 
             await SaveTask(T);
-
-            if (Notify) { await NotifAgent.SendNotification(T.Assignee!, $"{T.ID}|Task \"{T.Name}\" has been updated"); }
+            
+            if (Notify) {
+                await NotifAgent.SendNotification(new() {
+                    Owner = T.Assignee,
+                    Text = $"Task \"{T.Name}\" has been updated",
+                    Task = T
+                });
+            }
 
             return T;
 
