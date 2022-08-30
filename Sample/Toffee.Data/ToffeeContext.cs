@@ -94,6 +94,11 @@ namespace Igtampe.Toffee.Data {
         /// <returns></returns>
         public IQueryable<User> ApplyAutoIncludes(IQueryable<User> Set) => Set.Include(A=>A.ProfilePicture);
 
+        /// <summary>Applies all autoincludes on Notifications</summary>
+        /// <param name="Set"></param>
+        /// <returns></returns>
+        public IQueryable<Notification> ApplyAutoIncludes(IQueryable<Notification> Set) => Set.Include(A => A.Task);
+
         /// <summary>Applies all AutoIncludes on Tasks</summary>
         /// <param name="Set"></param>
         /// <returns></returns>
