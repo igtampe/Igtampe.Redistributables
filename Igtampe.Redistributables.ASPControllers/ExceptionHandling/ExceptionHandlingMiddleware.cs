@@ -1,5 +1,4 @@
 ﻿using Igtampe.Actions.Exceptions;
-using Igtampe.ChopoAuth;
 using Igtampe.ChopoAuth.Exceptions;
 using Igtampe.ChopoImageHandling.Exceptions;
 using Igtampe.ChopoSessionManager.Exceptions;
