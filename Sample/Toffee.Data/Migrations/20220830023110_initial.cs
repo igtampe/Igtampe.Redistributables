@@ -2,10 +2,13 @@
 using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
 
 namespace Toffee.Data.Migrations
 {
+#pragma warning disable IDE1006 // Naming Styles
     public partial class initial : Migration
+#pragma warning restore IDE1006 // Naming Styles
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -17,10 +20,7 @@ namespace Toffee.Data.Migrations
                     Data = table.Column<byte[]>(type: "bytea", nullable: true),
                     Type = table.Column<string>(type: "text", nullable: false)
                 },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Image", x => x.ID);
-                });
+                constraints: table => table.PrimaryKey("PK_Image", x => x.ID));
 
             migrationBuilder.CreateTable(
                 name: "User",
@@ -191,3 +191,4 @@ namespace Toffee.Data.Migrations
         }
     }
 }
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member

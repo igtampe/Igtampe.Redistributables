@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
 
 namespace Toffee.Data.Migrations
 {
@@ -254,3 +255,4 @@ namespace Toffee.Data.Migrations
         }
     }
 }
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
