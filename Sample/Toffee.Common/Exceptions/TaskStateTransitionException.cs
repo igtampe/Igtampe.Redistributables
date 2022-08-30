@@ -1,6 +1,6 @@
 ﻿using static Igtampe.Toffee.Common.TaskStateTransitionChecker;
 
-namespace Igtampe.Toffee.Exceptions {
+namespace Igtampe.Toffee.Common.Exceptions {
 
     /// <summary>Exception thrown when a requested task state transition is not valid</summary>
     public class TaskStateTransitionException : TaskException {

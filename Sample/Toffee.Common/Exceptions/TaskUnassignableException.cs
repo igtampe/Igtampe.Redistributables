@@ -1,4 +1,4 @@
-﻿namespace Igtampe.Toffee.Exceptions {
+﻿namespace Igtampe.Toffee.Common.Exceptions {
 
     /// <summary>Exception thrown when a Task is not assignable (or re-assignable) due to user rank</summary>
     public class TaskUnassignableException : TaskException {

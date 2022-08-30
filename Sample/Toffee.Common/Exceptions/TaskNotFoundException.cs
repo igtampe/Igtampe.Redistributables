@@ -1,6 +1,6 @@
 ﻿using Igtampe.Exceptions;
 
-namespace Igtampe.Toffee.Exceptions {
+namespace Igtampe.Toffee.Common.Exceptions {
     
     /// <summary>Exception thrown when a Task is not found</summary>
     public class TaskNotFoundException : ObjectNotFoundException<Common.Task, Guid> {

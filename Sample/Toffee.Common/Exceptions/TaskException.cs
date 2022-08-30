@@ -1,6 +1,6 @@
 ﻿using Igtampe.Exceptions;
 
-namespace Igtampe.Toffee.Exceptions {
+namespace Igtampe.Toffee.Common.Exceptions {
 
     /// <summary>Exception thrown relating to a Task</summary>
     public class TaskException : ObjectException<Common.Task, Guid> {
