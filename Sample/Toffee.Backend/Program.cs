@@ -1,11 +1,12 @@
 using Igtampe.BasicGraphics;
 using Igtampe.Redistributables.Launcher;
+using Igtampe.Toffee.Backend.ExceptionHandling;
 using Igtampe.Toffee.Data;
 
 namespace Igtampe.Toffee.Backend {
     internal static class Program {
         private static void Main(string[] args) {
-            Launcher.Launch<ToffeeContext>(new() {
+            Launcher.Launch<ToffeeContext,ToffeeExceptionHandlingMiddleware>(new() {
                 AllowAllCORS = true,
                 AlwaysDev = true,
                 App = new() {
