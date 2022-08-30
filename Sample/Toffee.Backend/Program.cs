@@ -1,24 +1,28 @@
-var builder = WebApplication.CreateBuilder(args);
+using Igtampe.BasicGraphics;
+using Igtampe.Redistributables.Launcher;
+using Igtampe.Toffee.Data;
 
-// Add services to the container.
-
-builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-
-var app = builder.Build();
-
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment()) {
-    app.UseSwagger();
-    app.UseSwaggerUI();
+namespace Igtampe.Toffee.Backend {
+    internal static class Program {
+        private static void Main(string[] args) {
+            Launcher.Launch<ToffeeContext>(new() {
+                AllowAllCORS = true,
+                AlwaysDev = true,
+                App = new() {
+                    Name = "Toffee",
+                    Description = "To-Do For Everyone! A simple demo of the IRED/IDACRA system.",
+                    License = "CC0",
+                    ProducesXML = false,
+                    XMLDocLoc = "",
+                    Version = "v1",
+                    Graphic = HiColorGraphic.LoadFromResource(Properties.Resources.toffeehc)
+                },
+                Author = new() {
+                    Name = "Chopo",
+                    Email = "me@igtampe.com",
+                    Url = "https://www.igtampe.com"
+                }
+            }, args);
+        }
+    }
 }
-
-app.UseHttpsRedirection();
-
-app.UseAuthorization();
-
-app.MapControllers();
-
-app.Run();
