@@ -24,7 +24,7 @@ namespace Igtampe.Redistributables.Actions.Test {
         };
 
         private readonly ISessionManager Manager = SessionManager.Manager;
-        private readonly NotificationAgent<TestContext,User> Agent;
+        private readonly NotificationAgent<TestContext,Notification<User>,User> Agent;
         private TestContext Context;
 
         public NotificationActionAgentTests() {
