@@ -6,7 +6,24 @@
     <Nullable>enable</Nullable>
     <RootNamespace>Igtampe.DBContexts</RootNamespace>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <Title>IDACRA DB Contexts</Title>
+    <Copyright>(C)2022 Igtampe, No Rights Reserved</Copyright>
+    <PackageIcon>IRED.png</PackageIcon>
+    <PackageReadmeFile>Readme.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/igtampe/Igtampe.Redistributables</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>DbContexts; Entity Framework; EF; Postgres; PostgresSQL;</PackageTags>
+    <Description>DBContexts includes the DbContexts portions of IDACRA. It has some interfaces for Actions, and the ever useful PostgresContext configurable DBContext. It's especially useful if you're planning to ship to Heroku, or any other DB that uses Postgres.</Description>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Authors>Igtampe</Authors>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\Images\IRED.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.7" />
@@ -23,6 +40,13 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Igtampe.Redistributables\Igtampe.Redistributables.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Readme.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>

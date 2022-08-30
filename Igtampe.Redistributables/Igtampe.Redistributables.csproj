@@ -6,14 +6,35 @@
     <Nullable>enable</Nullable>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <RootNamespace>Igtampe</RootNamespace>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Title>IRED</Title>
+    <Authors>Igtampe</Authors>
+    <Copyright>(C)2022 Igtampe, No Rights Reserved</Copyright>
+    <PackageReadmeFile>Readme.md</PackageReadmeFile>
+    <PackageIcon>IRED.png</PackageIcon>
+    <RepositoryUrl>https://github.com/igtampe/Igtampe.Redistributables</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>interfaces; auth; authentication; session management; session; </PackageTags>
+    <Description>IRED includes several common objects (Like Chopo Auth and the Chopo Session Manager), and several interfaces</Description>
   </PropertyGroup>
 
   <ItemGroup>
     <None Include="..\.editorconfig" Link=".editorconfig" />
+    <None Include="..\Images\IRED.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Cryptography.KeyDerivation" Version="6.0.6" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Readme.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>

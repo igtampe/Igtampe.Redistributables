@@ -5,7 +5,25 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Title>IDACRA Launcher</Title>
+    <Company>$(Authors)</Company>
+    <Authors>Igtampe</Authors>
+    <Description>Launch includes a simple ASP.NET Launcher, simplifying the process of getting your API up and running in a single method. Plus, it automatically configures the swagger with the information you provide!</Description>
+    <Copyright>(C)2022 Igtampe, No Rights Reserved</Copyright>
+    <PackageIcon>IRED.png</PackageIcon>
+    <RepositoryUrl>https://github.com/igtampe/Igtampe.Redistributables</RepositoryUrl>
+    <PackageTags>ASP.NET; Launcher</PackageTags>
+    <RepositoryType>git</RepositoryType>
+    <PackageReadmeFile>Readme.md</PackageReadmeFile>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\Images\IRED.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Igtampe.BasicGraphics" Version="1.1.0" />
@@ -26,6 +44,13 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Readme.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>

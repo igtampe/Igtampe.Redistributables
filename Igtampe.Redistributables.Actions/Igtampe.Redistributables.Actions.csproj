@@ -6,11 +6,35 @@
     <Nullable>enable</Nullable>
     <RootNamespace>Igtampe.Actions</RootNamespace>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Title>IDACRA Actions</Title>
+    <Copyright>(C)2022 Igtampe, No Rights Reserved</Copyright>
+    <PackageReadmeFile>Readme.md</PackageReadmeFile>
+    <PackageIcon>IRED.png</PackageIcon>
+    <RepositoryUrl>https://github.com/igtampe/Igtampe.Redistributables</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>Authentication; Auth; Session; Session Management;</PackageTags>
+    <Description>Actions includes the ActionsAgent portion of IDACRA. It has several reusable actions including UserAgent to retrieve IRED Chopo Users, or Notifier Notifications to send users their notifications</Description>
+    <Authors>Igtampe</Authors>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\Images\IRED.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Igtampe.Redistributables.DBContexts\Igtampe.Redistributables.DBContexts.csproj" />
     <ProjectReference Include="..\Igtampe.Redistributables\Igtampe.Redistributables.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Readme.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>

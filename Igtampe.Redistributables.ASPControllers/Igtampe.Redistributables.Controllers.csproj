@@ -6,7 +6,24 @@
     <Nullable>enable</Nullable>
     <RootNamespace>Igtampe.Controllers</RootNamespace>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Title>IDACRA Controllers</Title>
+    <Description>ASPControllers includes the Controllers portion of IDACRA. It has controller bases for your new controllers, and reusable ones for IRED entities.</Description>
+    <Copyright>(C)2022 Igtampe, No Rights Reserved</Copyright>
+    <PackageIcon>IRED.png</PackageIcon>
+    <PackageReadmeFile>Readme.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/igtampe/Igtampe.Redistributables</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>ASP.NET; Controllers; Authentication; Session Management;</PackageTags>
+    <Authors>Igtampe</Authors>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\Images\IRED.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
@@ -16,6 +33,13 @@
     <ProjectReference Include="..\Igtampe.Redistributables.Actions\Igtampe.Redistributables.Actions.csproj" />
     <ProjectReference Include="..\Igtampe.Redistributables.DBContexts\Igtampe.Redistributables.DBContexts.csproj" />
     <ProjectReference Include="..\Igtampe.Redistributables\Igtampe.Redistributables.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Readme.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>
