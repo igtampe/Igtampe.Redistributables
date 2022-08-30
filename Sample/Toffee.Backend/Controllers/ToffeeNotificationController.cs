@@ -8,7 +8,7 @@ namespace Igtampe.Toffee.Backend.Controllers {
     
     [Route("API/Notifications")]
     [ApiController]
-    public class ToffeeNotificationController : NotificationController<ToffeeContext, User> {
+    public class ToffeeNotificationController : NotificationController<ToffeeContext, Notification, User> {
 
         public ToffeeNotificationController(ToffeeContext Context)  : base(Context, SessionManager.Manager) {}
 
