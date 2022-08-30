@@ -29,7 +29,8 @@ namespace Igtampe.Actions {
         /// <returns></returns>
         public async Task<List<F>> GetAll(Guid? SessionID) {
             var S = await GetSession(SessionID);
-            return await Context.Notification.Where(A => A.Owner != null && A.Owner.Username == S.Username).ToListAsync();
+            return await Context.ApplyAutoIncludes(Context.Notification)
+                .Where(A => A.Owner != null && A.Owner.Username == S.Username).ToListAsync();
         }
 
         /// <summary>Deletes one notification from the logged in user</summary>
