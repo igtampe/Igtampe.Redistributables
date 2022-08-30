@@ -117,7 +117,6 @@ namespace Igtampe.Redistributables.Launcher {
 
             var Bar = PrepBar(ForceOneRow);
 
-
             Draw.Sprite(L1, Console.BackgroundColor, Console.ForegroundColor, TextLeftOffset, TextTopOffset);
             Draw.Sprite(L2, Console.BackgroundColor, Console.ForegroundColor, TextLeftOffset, TextTopOffset + 1);
 
