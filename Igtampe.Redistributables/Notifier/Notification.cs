@@ -2,8 +2,12 @@
 using System.Text.Json.Serialization;
 
 namespace Igtampe.Notifier {
-    /// <summary>A Notification to a <see cref="User"/></summary>
-    public class Notification : AutomaticallyGeneratableIdentifiable, Ownable<User>, Dateable {
+
+    /// <summary>Generic notification for <see cref="User"/></summary>
+    public class Notification : Notification<User> { }
+
+    /// <summary>A Notification to a descendant of <see cref="User"/></summary>
+    public class Notification<E> : AutomaticallyGeneratableIdentifiable, Ownable<E>, Dateable where E : User {
 
         /// <summary>Text of this notification</summary>
         public string Text { get; set; } = "";
@@ -13,7 +17,7 @@ namespace Igtampe.Notifier {
 
         /// <summary>User this notification belongs to</summary>
         [JsonIgnore]
-        public User? Owner { get; set; }
+        public E? Owner { get; set; }
 
         /// <summary>String representation of this notification with all relevant data</summary>
         /// <returns></returns>

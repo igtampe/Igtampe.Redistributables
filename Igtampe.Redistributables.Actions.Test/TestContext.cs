@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 namespace Igtampe.Redistributables.Actions.Test {
 
     /// <summary>This is a test context that runs in memory and contains tables for all needed entities for testing</summary>
-    internal class TestContext : DbContext, IImageContext, INotificationContext<User> {
+    internal class TestContext : DbContext, IImageContext, INotificationContext<Notification<User>, User> {
 
 #pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
         public TestContext(DbContextOptions<TestContext> options) : base(options) { }
@@ -23,7 +23,7 @@ namespace Igtampe.Redistributables.Actions.Test {
 
         public DbSet<Image> Image { get; set; }
 
-        public DbSet<Notification> Notification { get; set; }
+        public DbSet<Notification<User>> Notification { get; set; }
 
         public IQueryable<User> ApplyAutoIncludes(IQueryable<User> Set) => Set;
 

@@ -4,6 +4,7 @@ using Igtampe.ChopoImageHandling;
 using Igtampe.ChopoImageHandling.Exceptions;
 using Igtampe.ChopoSessionManager;
 using NUnit.Framework;
+using System;
 using System.Threading.Tasks;
 
 namespace Igtampe.Redistributables.Actions.Test {
@@ -12,9 +13,9 @@ namespace Igtampe.Redistributables.Actions.Test {
         private static readonly User[] Users = { new() { Username = "Chopo", IsAdmin = true, Name = "Chopo" }, };
 
         private static readonly Image[] Images = {
-            new() { ID = new("13693bcd-b64b-48f8-b458-ef1ffcbad093"), Data=new byte[] { 0x1, 0x2, 0x3 } },
-            new() { ID = new("8e8b56b4-8e04-4bbc-86c8-352303a8640f"), Data=new byte[] { 0x4, 0x5, 0x6 } },
-            new() { ID = new("a4e75dd9-db4c-465d-bbc4-725455dd2808"), Data=new byte[] { 0x7, 0x8, 0x9 } },
+            new() { ID = Guid.NewGuid(), Data=new byte[] { 0x1, 0x2, 0x3 } },
+            new() { ID = Guid.NewGuid(), Data=new byte[] { 0x4, 0x5, 0x6 } },
+            new() { ID = Guid.NewGuid(), Data=new byte[] { 0x7, 0x8, 0x9 } },
         };
 
         private readonly ISessionManager Manager = SessionManager.Manager;

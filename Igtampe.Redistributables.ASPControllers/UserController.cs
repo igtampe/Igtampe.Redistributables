@@ -9,8 +9,6 @@ using Igtampe.Actions;
 namespace Igtampe.Controllers {
 
     /// <summary>Controller that handles User operations</summary>
-    [Route("API/Users")]
-    [ApiController]
     public class UserController<E,F> : ErrorResultControllerBase where E : DbContext, IUserContext<F> where F : User, new(){
 
         private readonly AuthAgent<E,F> Agent;
@@ -35,7 +33,7 @@ namespace Igtampe.Controllers {
         /// <param name="SessionID">ID of the session</param>
         /// <returns></returns>
         [HttpGet]
-        public async Task<IActionResult> GetCurrentLoggedIn([FromHeader] Guid? SessionID) 
+        public async Task<IActionResult> GetMe([FromHeader] Guid? SessionID) 
             => Ok(await Agent.GetMe(SessionID));
 
         /// <summary>Gets a given user</summary>

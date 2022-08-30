@@ -361,3 +361,5 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+DBURL.txt
+/Sample/Toffee.Backend/AUTH_SALT.txt

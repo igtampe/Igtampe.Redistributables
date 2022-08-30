@@ -9,10 +9,12 @@ namespace Igtampe.ChopoSessionManager {
         private static SessionManager? SingletonSM;
 
         /// <summary>Gets the static, singleton session manager</summary>
-        public static SessionManager Manager 
+#pragma warning disable S1121 // Assignments should not be made from within sub-expressions
+        public static SessionManager Manager
             => SingletonSM is null
                 ? SingletonSM = new SessionManager()
                 : SingletonSM;
+#pragma warning restore S1121 // Assignments should not be made from within sub-expressions
 
         /// <summary>Collection of all sessions in this manager</summary>
         private readonly ICollection<Session> Sessions;

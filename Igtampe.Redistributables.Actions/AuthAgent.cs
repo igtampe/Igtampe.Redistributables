@@ -197,7 +197,7 @@ namespace Igtampe.Actions {
         /// <summary>Saves a user to the database</summary>
         /// <param name="U"></param>
         /// <returns></returns>
-        private async Task<F> SaveUser(F U) {
+        protected async Task<F> SaveUser(F U) {
             Context.User.Update(U);
             await Context.SaveChangesAsync();
             return U;

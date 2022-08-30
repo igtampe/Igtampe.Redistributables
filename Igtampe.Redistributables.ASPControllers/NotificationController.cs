@@ -4,15 +4,17 @@ using Microsoft.EntityFrameworkCore;
 using Igtampe.DBContexts;
 using Igtampe.ChopoAuth;
 using Igtampe.Actions;
+using Igtampe.Notifier;
 
 namespace Igtampe.Controllers {
 
     /// <summary>Controller that handles User operations</summary>
-    [Route("API/Notif")]
-    [ApiController]
-    public class NotificationController<E,F> : ErrorResultControllerBase where E : DbContext, IUserContext<F>, INotificationContext<F> where F : User {
+    public class NotificationController<E, F, G> : ErrorResultControllerBase 
+        where E : DbContext, IUserContext<G>, INotificationContext<F,G>
+        where F : Notification<G>, new()
+        where G : User, new() {
 
-        private readonly NotificationAgent<E,F> Agent;
+        private readonly NotificationAgent<E,F,G> Agent;
 
         /// <summary>Creates a User Controller</summary>
         /// <param name="Context"></param>
