@@ -16,6 +16,10 @@
     <PackageTags>ASP.NET; Launcher</PackageTags>
     <RepositoryType>git</RepositoryType>
     <PackageReadmeFile>Readme.md</PackageReadmeFile>
+    <PackageLicenseExpression>CC0-1.0</PackageLicenseExpression>
+    <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+    <OutputType>Library</OutputType>
+    <UserSecretsId>f213884a-74ba-4844-9d52-e60b6c400d31</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>

@@ -16,6 +16,8 @@
     <RepositoryType>git</RepositoryType>
     <PackageTags>ASP.NET; Controllers; Authentication; Session Management;</PackageTags>
     <Authors>Igtampe</Authors>
+    <PackageLicenseExpression>CC0-1.0</PackageLicenseExpression>
+    <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
   </PropertyGroup>
 
   <ItemGroup>

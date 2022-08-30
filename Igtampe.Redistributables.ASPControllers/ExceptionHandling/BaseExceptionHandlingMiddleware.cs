@@ -36,7 +36,7 @@ namespace Igtampe.Controllers.ExceptionHandling {
 #if DEBUG
             ErrorResult.ServerError($"{error.GetType().FullName}: {error.Message}\n\n{error.StackTrace}");
 #else
-            return ErrorResult.ServerError("An unknown server error occurred");
+            ErrorResult.ServerError("An unknown server error occurred");
 #endif
     }
 }

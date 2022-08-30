@@ -16,6 +16,8 @@
     <PackageTags>Authentication; Auth; Session; Session Management;</PackageTags>
     <Description>Actions includes the ActionsAgent portion of IDACRA. It has several reusable actions including UserAgent to retrieve IRED Chopo Users, or Notifier Notifications to send users their notifications</Description>
     <Authors>Igtampe</Authors>
+    <PackageLicenseExpression>CC0-1.0</PackageLicenseExpression>
+    <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
   </PropertyGroup>
 
   <ItemGroup>

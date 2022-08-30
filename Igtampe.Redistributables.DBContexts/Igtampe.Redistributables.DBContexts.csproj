@@ -16,6 +16,8 @@
     <Description>DBContexts includes the DbContexts portions of IDACRA. It has some interfaces for Actions, and the ever useful PostgresContext configurable DBContext. It's especially useful if you're planning to ship to Heroku, or any other DB that uses Postgres.</Description>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Authors>Igtampe</Authors>
+    <PackageLicenseExpression>CC0-1.0</PackageLicenseExpression>
+    <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
   </PropertyGroup>
 
   <ItemGroup>

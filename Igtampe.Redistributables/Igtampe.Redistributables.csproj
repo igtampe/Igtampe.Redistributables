@@ -16,6 +16,8 @@
     <RepositoryType>git</RepositoryType>
     <PackageTags>interfaces; auth; authentication; session management; session; </PackageTags>
     <Description>IRED includes several common objects (Like Chopo Auth and the Chopo Session Manager), and several interfaces</Description>
+    <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+    <PackageLicenseExpression>CC0-1.0</PackageLicenseExpression>
   </PropertyGroup>
 
   <ItemGroup>
