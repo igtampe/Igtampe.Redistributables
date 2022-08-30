@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Http;
 namespace Igtampe.Controllers.ExceptionHandling {
 
     /// <summary>Default implementation of the ExceptionHandlingMiddleware with all common redistributable exceptions</summary>
-    public class ExceptionHandlingMiddleware<E> : BaseExceptionHandlingMiddleware where E:User {
+    public class ExceptionHandlingMiddleware : BaseExceptionHandlingMiddleware {
 
         /// <summary>Creates a handling middleware</summary>
         /// <param name="next"></param>
