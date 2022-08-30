@@ -8,6 +8,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.8">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\..\Igtampe.Redistributables.DBContexts\Igtampe.Redistributables.DBContexts.csproj" />
     <ProjectReference Include="..\Toffee.Common\Toffee.Common.csproj" />
   </ItemGroup>
