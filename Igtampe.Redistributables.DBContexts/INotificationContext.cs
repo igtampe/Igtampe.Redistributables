@@ -9,5 +9,10 @@ namespace Igtampe.DBContexts {
 
         /// <summary>Table of all users</summary>
         public DbSet<E> Notification {get; set;}
+
+        /// <summary>Apply any Include operation to sets that your user object should always contain. If there's no autoincludes, return the same set</summary>
+        /// <returns></returns>
+        public IQueryable<E> ApplyAutoIncludes(IQueryable<E> Set) => Set;
+
     }
 }
