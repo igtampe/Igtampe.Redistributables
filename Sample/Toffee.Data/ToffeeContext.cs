@@ -1,13 +1,12 @@
 ﻿using Igtampe.ChopoImageHandling;
 using Igtampe.DBContexts;
-using Igtampe.Notifier;
 using Igtampe.Toffee.Common;
 using Microsoft.EntityFrameworkCore;
 
 namespace Igtampe.Toffee.Data {
 
     /// <summary>Main context for all of Toffee</summary>
-    public class ToffeeContext : PostgresContext, INotificationContext<User>, IImageContext {
+    public class ToffeeContext : PostgresContext, INotificationContext<Notification, User>, IImageContext {
 
         private static readonly Category NONE_CATEGORY = new() {
             Name = "None", Description = "Tasks with no categories",
