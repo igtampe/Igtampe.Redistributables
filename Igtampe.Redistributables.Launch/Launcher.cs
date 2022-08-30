@@ -15,17 +15,33 @@ namespace Igtampe.Redistributables.Launcher {
         public static LauncherOptions? Options { get; private set; }
 
         private sealed class EmptyContext : DbContext { }
+        private sealed class EmptyMiddleware {
 
-        /// <summary>Launches the application with specified options and no DB Context configured</summary>
+            private readonly RequestDelegate _next;
+            public EmptyMiddleware(RequestDelegate next) => _next = next;
+            public async Task InvokeAsync(HttpContext httpContext) => await _next(httpContext);
+
+        }
+
+        /// <summary>Launches the application with specified options and no DB Context configured or middleware</summary>
         /// <param name="LaunchOptions"></param>
         /// <param name="args"></param>
         public static void Launch(LauncherOptions LaunchOptions, string[]? args = null) => Launch<EmptyContext>(LaunchOptions, args);
 
-        /// <summary>Launches the application with specified options and provided master DB Context</summary>
-        /// <typeparam name="E"></typeparam>
+        /// <summary>Launches the application with specified options and provided master DB Context, but no middleware</summary>
+        /// <typeparam name="E">Master DB Context</typeparam>
         /// <param name="LaunchOptions"></param>
         /// <param name="args"></param>
-        public static void Launch<E>(LauncherOptions LaunchOptions, string[]? args = null) where E : DbContext {
+        public static void Launch<E>(LauncherOptions LaunchOptions, string[]? args = null)
+            where E : DbContext
+            => Launch<E,EmptyMiddleware>(LaunchOptions, args);
+
+        /// <summary>Launches the application with specified options and provided master DB Context and provided middleware</summary>
+        /// <typeparam name="E">Master DB Context</typeparam>
+        /// <typeparam name="F">Middleware</typeparam>
+        /// <param name="LaunchOptions"></param>
+        /// <param name="args"></param>
+        public static void Launch<E,F>(LauncherOptions LaunchOptions, string[]? args = null) where E : DbContext {
 
             Options = LaunchOptions;
 
@@ -77,6 +93,8 @@ namespace Igtampe.Redistributables.Launcher {
             app.UseHttpsRedirection();
             app.UseAuthorization();
 
+            app.UseMiddleware<F>();
+
             app.MapControllers();
 
             app.Run();
@@ -100,7 +118,7 @@ namespace Igtampe.Redistributables.Launcher {
 
             Manifest M = Options.ToManifest();
             string L1 = $"{M.Name} ({M.Version})";
-            string L2 = $"Powered by IDACRA ({M.IDACRA_VERSION})";
+            string L2 = $"Powered by IDACRA ({M.idacra_version})";
 
             int TextMaxLength = Math.Max(L1.Length, L2.Length);
 
