@@ -22,7 +22,7 @@ namespace Igtampe.DBContexts {
             string CString;
 
             try { CString = ConvertPostgresURLToConnectionString(DBURL);} 
-            catch (Exception) { throw new DBURLUnparsableException(DBURL); ;}
+            catch (Exception) { throw new DBURLUnparsableException(DBURL);}
             
             optionsBuilder.UseNpgsql(CString);
         }
