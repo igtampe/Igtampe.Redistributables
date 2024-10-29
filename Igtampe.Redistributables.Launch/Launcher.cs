@@ -46,7 +46,7 @@ namespace Igtampe.Redistributables.Launcher {
             Options = LaunchOptions;
 
             //Logo
-            DrawLogo(LaunchOptions);
+            try {DrawLogo(LaunchOptions);} catch (Exception) {} //Try catch just in case we're not in a console
 
             var builder = WebApplication.CreateBuilder(args ?? Array.Empty<string>());
             var CORS = "CORS";

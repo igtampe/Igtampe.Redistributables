@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -10,7 +10,7 @@
     <Company>$(Authors)</Company>
     <Authors>Igtampe</Authors>
     <Description>Launch includes a simple ASP.NET Launcher, simplifying the process of getting your API up and running in a single method. Plus, it automatically configures the swagger with the information you provide!</Description>
-    <Copyright>(C)2022 Igtampe, No Rights Reserved</Copyright>
+    <Copyright>(C)2023 Igtampe, No Rights Reserved</Copyright>
     <PackageIcon>IRED.png</PackageIcon>
     <RepositoryUrl>https://github.com/igtampe/Igtampe.Redistributables</RepositoryUrl>
     <PackageTags>ASP.NET; Launcher</PackageTags>
@@ -22,6 +22,9 @@
     <UserSecretsId>f213884a-74ba-4844-9d52-e60b6c400d31</UserSecretsId>
     <IsPublishable>True</IsPublishable>
 	  <IsPackable>true</IsPackable>
+	  <AssemblyVersion>1.1.0.0</AssemblyVersion>
+	  <FileVersion>1.1.0.0</FileVersion>
+	  <Version>1.1.0</Version>
   </PropertyGroup>
 
   <ItemGroup>
