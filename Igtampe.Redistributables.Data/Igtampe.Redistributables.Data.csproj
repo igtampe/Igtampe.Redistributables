@@ -1,0 +1,39 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+	  <GenerateDocumentationFile>True</GenerateDocumentationFile>
+	  <RootNamespace>Igtampe.Data</RootNamespace>
+	  <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+	  <Title>IRED Data</Title>
+	  <Authors>Igtampe</Authors>
+	  <Copyright>(C)2024 Igtampe, No Rights Reserved</Copyright>
+	  <PackageReadmeFile>Readme.md</PackageReadmeFile>
+	  <PackageIcon>IRED.png</PackageIcon>
+	  <RepositoryUrl>https://github.com/igtampe/Igtampe.Redistributables</RepositoryUrl>
+	  <RepositoryType>git</RepositoryType>
+	  <PackageTags>data; auth; authentication; session management; session; </PackageTags>
+	  <Description>IRED Data includes common postgressql database utilities and objects for IRED, such as the AdoTemplate, as well as base DAOs for sessions and users</Description>
+	  <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+	  <PackageLicenseExpression>CC0-1.0</PackageLicenseExpression>
+
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\Images\IRED.png" Link="IRED.png">
+      <PackagePath>\</PackagePath>
+      <Pack>True</Pack>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Npgsql" Version="8.0.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Igtampe.Redistributables\Igtampe.Redistributables.csproj" />
+  </ItemGroup>
+
+</Project>
